@@ -1,5 +1,5 @@
-import React from 'React';
-import './building.css';
+import React from 'react';
+import './Building.css';
 
 class Building extends React.Component {
   render () {
