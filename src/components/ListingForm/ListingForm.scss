@@ -1,3 +1,5 @@
-.ListingForm {
-  background-color: lightgreen;
+@import 'styles/_colors';
+
+.ListingForm{
+  background-color: $red;
 }
