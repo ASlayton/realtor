@@ -30,6 +30,8 @@ class App extends Component {
   }
 
   render () {
+    const {selectedListingId, listings} = this.state;
+    const selectedListing = listings.find(listing => listing.id === selectedListingId);
     return (
       <div className="App">
         <div className="col-sm-6">
@@ -39,7 +41,7 @@ class App extends Component {
           />
         </div>
         <div className="col-sm-6">
-          <Building />
+          <Building listing={selectedListing} />
         </div>
         <div className="col-sm-12">
           <ListingForm />
