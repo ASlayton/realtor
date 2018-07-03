@@ -3,6 +3,7 @@ import React from 'react';
 import {listingShape} from '../../propz/listingProp';
 import {formatPrice} from '../../helpers';
 import './Building.css';
+import BuildingTile from '../BuildingTile/BuildingTile';
 
 class Building extends React.Component {
   static propTypes = {listing: listingShape};
@@ -28,6 +29,28 @@ class Building extends React.Component {
             <h5>{listing.numBeds} Bed/{listing.numBaths} Bath</h5>
             <h5>{listing.squareFootage} ft<sup>2</sup></h5>
             <p>{listing.description}</p>
+          </div>
+          <div className="row">
+            <BuildingTile
+              imageSrc = 'cal.png'
+              altText = 'calendar'
+              pTagText = {`Built: ${listing.yearBuilt}`}
+            />
+            <BuildingTile
+              imageSrc = 'hill.png'
+              altText = 'calendar'
+              pTagText = {`${listing.lotInAcres} acres`}
+            />
+            <BuildingTile
+              imageSrc = 'flame.png'
+              altText = 'Flame'
+              pTagText = {listing.heating}
+            />
+            <BuildingTile
+              imageSrc = 'snow.png'
+              altText = 'Snowflake'
+              pTagText = {listing.cooling}
+            />
           </div>
         </div>
 
