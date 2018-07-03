@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {listingShape} from '../../propz/listingProp';
 import {formatPrice} from '../../helpers';
 import './Building.css';
@@ -8,13 +8,14 @@ class Building extends React.Component {
   static propTypes = {listing: listingShape};
   render () {
     const {listing} = this.props;
-    if (!listing) {
+    if (listing.nope) {
       return (
-        <h1>OH NO!</h1>
+        <div className="Building">
+          <h1 className="unknown-listing"><span className="glyphicon glyphicon-arrow-left"></span>OH NO!</h1>
+        </div>
       );
     };
     return (
-
       <div className="Building">
         <div className="row">
           <div className="col-xs-6">
