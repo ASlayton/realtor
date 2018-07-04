@@ -14,7 +14,7 @@ class Building extends React.Component {
     if (listing.nope) {
       return (
         <div className="Building">
-          <h1 className="unknown-listing"><span className="glyphicon glyphicon-arrow-left"></span> OH NO!</h1>
+          <h1 className="unknown-listing"><span className="glyphicon glyphicon-arrow-left"></span> Click a home to see info!</h1>
         </div>
       );
     }

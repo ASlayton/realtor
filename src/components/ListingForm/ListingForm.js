@@ -5,13 +5,34 @@ class ListingForm extends React.Component {
   state = {
     newListing: {
       address: '',
+      city: '',
+      squareFootage: 0,
     },
   }
-  addressChange = (e) => {
+
+  formFieldStringState = (name, e) => {
     const tempListing = {...this.state.newListing};
-    tempListing.address = e.target.value;
+    tempListing[name] = e.target.value;
     this.setState({newListing: tempListing});
+  };
+
+  formFieldNumberState = (name, e) => {
+    const tempListing = {...this.state.newListing};
+    tempListing[name] = e.target.value * 1;
+    this.setState({newListing: tempListing});
+  };
+
+  addressChange = (e) => {
+    this.formFieldStringState('address', e);
   }
+
+  cityChange = (e) => {
+    this.formFieldStringState('city', e);
+  };
+
+  squareFootageChange = (e) => {
+    this.formFieldNumberState('squareFootage', e);
+  };
 
   formSubmit = (e) => {
     const {onSubmit} = this.props;
@@ -35,6 +56,32 @@ class ListingForm extends React.Component {
                 placeholder="123 Sesame St."
                 value={newListing.address}
                 onChange={this.addressChange}
+              />
+            </fieldset>
+            <fieldset className="col-xs-3">
+              <label htmlFor="city">City:</label>
+              <br/>
+              <input
+                className="col-xs-12"
+                type="text"
+                id="city"
+                placeholder="Nashville"
+                value={newListing.city}
+                onChange={this.cityChange}
+              />
+            </fieldset>
+          </div>
+          <div className="row">
+            <fieldset className="col-xs-3">
+              <label htmlFor="squareFootage">Sq. Footage:</label>
+              <br/>
+              <input
+                className="col-xs-12"
+                type="number"
+                id="sqaureFootage"
+                placeholder="100"
+                value={newListing.squareFootage}
+                onChange={this.squareFootageChange}
               />
             </fieldset>
           </div>
