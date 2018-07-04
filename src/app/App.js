@@ -29,6 +29,16 @@ class App extends Component {
       });
   }
 
+  formSubmitEvent = (newListing) => {
+    listingRequests.postRequest(newListing)
+      .then((listings) => {
+        this.setState({listings});
+      })
+      .catch((error) => {
+        console.error('error with listings post:', error);
+      });
+  };
+
   render () {
     const {selectedListingId, listings} = this.state;
     const selectedListing = listings.find(listing => listing.id === selectedListingId) || {nope: 'nope'};
@@ -44,7 +54,9 @@ class App extends Component {
           <Building listing={selectedListing} />
         </div>
         <div className="col-sm-12">
-          <ListingForm />
+          <ListingForm
+            onSubmit={this.formSubmitEvent}
+          />
         </div>
       </div>
     );
